@@ -1,0 +1,315 @@
+:root {
+  --bg-color: rgba(10, 15, 25, 0.8);
+  --text-color: #e0e0ff;
+  --neon-blue: #00f3ff;
+  --neon-green: #00ff9d;
+  --neon-purple: #b300ff;
+  --neon-red: #ff0055;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg, #000, #111, #001), url('https://websimcreationengine.ai/futuristic-text-to-speech/bear-background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.side-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+}
+
+.side-button {
+  background: var(--bg-color);
+  border: 2px solid var(--neon-blue);
+  color: var(--text-color);
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 180px;
+}
+
+.side-button:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.side-button i {
+  margin-right: 10px;
+}
+
+.window {
+  background: var(--bg-color);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 20px;
+  margin: 10px;
+  width: calc(100% - 220px);
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#textInputWindow {
+  flex-grow: 1;
+}
+
+.window-title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--neon-blue);
+  text-align: center;
+}
+
+.text-area-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.text-area {
+  width: 100%;
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--neon-blue);
+  border-radius: 10px;
+  color: var(--text-color);
+  font-size: 16px;
+  padding: 10px;
+  resize: none;
+  transition: all 0.3s ease;
+  min-height: 150px;
+}
+
+.text-area:focus {
+  outline: none;
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.text-area-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.slider-container {
+  margin-bottom: 15px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--neon-green);
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.neon-button {
+  background: transparent;
+  border: 2px solid var(--neon-purple);
+  color: var(--neon-purple);
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  background: var(--neon-purple);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-purple);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.history-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.social-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-emoji {
+  position: fixed;
+  font-size: 30px;
+  opacity: 0.5;
+  animation: float 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 500;
+}
+
+.select-container {
+  margin-bottom: 15px;
+}
+
+.voice-select {
+  width: 100%;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--neon-blue);
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+.ai-music-description {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ai-music-description h3 {
+  color: var(--neon-green);
+  margin-bottom: 10px;
+}
+
+.ai-music-description ul {
+  padding-left: 20px;
+}
+
+.ai-music-description li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .side-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: static;
+  }
+
+  .window {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .window {
+    width: calc(50% - 130px);
+  }
+
+  #aiMusicWindow {
+    width: calc(100% - 220px);
+  }
+}
+
+/* Copy the entire <style> section from the provided code into this space */
